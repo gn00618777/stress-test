@@ -34,11 +34,16 @@ do
 	sync
 	dd if=/tmp/usb_mount/write_bin of=/read_bin bs=$_bs count=$_count
 	sync
+
 	cmp /tmp/usb_mount/write_bin read_bin
 	if [ $? -ne 0 ]; then
 		echo "data is not correct!"
 		exit 1
 	fi
+
+	rm /tmp/usb_mount/write_bin
+	sync
+	umount /tmp/usb_mount
 
 done < usb_stick
 
