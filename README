@@ -1,1 +1,4 @@
-test only
+Description:
+            llt_eth.sh: Test whether the packet will be lost
+How to use:
+            ./llt_eth.sh <IP>
